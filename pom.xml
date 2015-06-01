@@ -93,7 +93,7 @@
         <dependency>
             <groupId>com.github.sajato.logw</groupId>
             <artifactId>logw-slf4j</artifactId>
-            <version>74f5112dd4</version>
+            <version>v0.1.0</version>
         </dependency>
 
         <dependency>
