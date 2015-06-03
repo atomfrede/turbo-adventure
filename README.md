@@ -1,7 +1,6 @@
 # turbo-adventure
 
 [![Build Status](https://travis-ci.org/atomfrede/turbo-adventure.svg?branch=master)](https://travis-ci.org/atomfrede/turbo-adventure)
-[![codecov.io](http://codecov.io/github/atomfrede/turbo-adventure/coverage.svg?branch=master)](http://codecov.io/github/atomfrede/turbo-adventure?branch=master)
 [![Codecov](https://img.shields.io/codecov/c/github/atomfrede/turbo-adventure/master.svg)](http://codecov.io/github/atomfrede/turbo-adventure?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5522676e971f7847ca0004a5/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5522676e971f7847ca0004a5)
 [![Stories in Ready](https://badge.waffle.io/atomfrede/turbo-adventure.svg?label=ready&title=Ready)](http://waffle.io/atomfrede/turbo-adventure)
