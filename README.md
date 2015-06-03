@@ -2,11 +2,9 @@
 
 [![Build Status](https://travis-ci.org/atomfrede/turbo-adventure.svg?branch=master)](https://travis-ci.org/atomfrede/turbo-adventure)
 [![Circle CI](https://circleci.com/gh/atomfrede/turbo-adventure.svg?style=svg)](https://circleci.com/gh/atomfrede/turbo-adventure)
-[![Coverage Status](https://coveralls.io/repos/atomfrede/turbo-adventure/badge.svg?branch=master)](https://coveralls.io/r/atomfrede/turbo-adventure?branch=master)
 [![codecov.io](http://codecov.io/github/atomfrede/turbo-adventure/coverage.svg?branch=master)](http://codecov.io/github/atomfrede/turbo-adventure?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5522676e971f7847ca0004a5/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5522676e971f7847ca0004a5)
 [![Stories in Ready](https://badge.waffle.io/atomfrede/turbo-adventure.svg?label=ready&title=Ready)](http://waffle.io/atomfrede/turbo-adventure)
-[![HuBoardbadge](http://img.shields.io/badge/Hu-Board-7965cc.svg)](https://huboard.com/atomfrede/turbo-adventure#/)
 [![Join the chat at https://gitter.im/atomfrede/turbo-adventure](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/atomfrede/turbo-adventure?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![GitHub license](https://img.shields.io/github/license/atomfrede/turbo-adventure.svg?style=flat)
 
@@ -19,10 +17,6 @@ The application is available at docker hub:
 ``docker pull atomfrede/turbo-adventure``
 
 ``docker run –p 3434:3434 atomfrede/turbo-adventure``
-
-## Coverage
-
-![codecov.io](http://codecov.io/github/atomfrede/turbo-adventure/branch.svg?branch=master)
 
 ## License
 
