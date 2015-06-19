@@ -15,7 +15,7 @@
 		<dropwizard.java8.version>0.8.0-2</dropwizard.java8.version>
 		<mongo.java.driver.version>3.0.2</mongo.java.driver.version>
 		<jongo.version>1.2</jongo.version>
-		<jackson.joda.version>2.5.3</jackson.joda.version>
+		<jackson.joda.version>2.5.4</jackson.joda.version>
 		<jmockit.version>1.17</jmockit.version>
 		<jacoco.version>0.7.5.201505241946</jacoco.version>
 		<coveralls.maven.vesion>3.1.0</coveralls.maven.vesion>
