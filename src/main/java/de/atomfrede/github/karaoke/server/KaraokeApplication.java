@@ -18,6 +18,8 @@ import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.mongeez.Mongeez;
+import org.springframework.core.io.ClassPathResource;
 
 public class KaraokeApplication extends Application<KaraokeConfiguration> {
 
@@ -46,6 +48,8 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
         MongoClient mongo = new MongoClient(serverAddress, clientOptions);
         environment.healthChecks().register("MongoDB", new MongoHealthCheck(mongo));
 
+        migrateDatabase(mongo, configuration.mongodb);
+
         final SingerRepository singerRepository = new SingerRepository(new DB(mongo, configuration.mongodb));
         environment.lifecycle().manage(singerRepository);
 
@@ -61,6 +65,15 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
         PingResource pingResource = new PingResource();
 
         environment.jersey().register(pingResource);
+    }
+
+    private void migrateDatabase(MongoClient mongo, String dbName) {
+
+        Mongeez mongeez = new Mongeez();
+        mongeez.setFile(new ClassPathResource("/path_to/mongeez.xml"));
+        mongeez.setMongo(mongo);
+        mongeez.setDbName(dbName);
+        mongeez.process();
     }
 
 }

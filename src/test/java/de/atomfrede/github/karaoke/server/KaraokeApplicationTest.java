@@ -17,6 +17,7 @@ import mockit.integration.junit4.JMockit;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mongeez.Mongeez;
 
 @RunWith(JMockit.class)
 public class KaraokeApplicationTest {
@@ -29,6 +30,8 @@ public class KaraokeApplicationTest {
     LifecycleEnvironment lifecycle;
     @Mocked
     HealthCheckRegistry healthChecks;
+    @Mocked
+    Mongeez mongeez;
 
     KaraokeApplication application = new KaraokeApplication();
     KaraokeConfiguration configuration = new KaraokeConfiguration();
@@ -46,6 +49,7 @@ public class KaraokeApplicationTest {
 
             environment.healthChecks();
             result = healthChecks;
+
         }};
     }
 
@@ -101,6 +105,18 @@ public class KaraokeApplicationTest {
         new Verifications() {{
 
             environment.lifecycle().manage(withInstanceOf(JongoManaged.class));
+        }};
+    }
+
+    @Test
+    public void shouldMigrateMongo() throws Exception {
+
+        application.run(configuration, environment);
+
+        new Verifications() {{
+
+            mongeez.process();
+            times = 1;
         }};
     }
 }
