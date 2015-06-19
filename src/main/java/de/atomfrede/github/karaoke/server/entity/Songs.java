@@ -18,7 +18,7 @@ public class Songs {
         return songs;
     }
 
-    public void setSingers(Iterable<Song> songs) {
+    public void setSongs(Iterable<Song> songs) {
         this.songs = songs;
     }
 }
