@@ -9,17 +9,18 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     final String COLLECTION_NAME = "singers";
     final String ID_QUERY = "{_id:#}";
+    final String IDS_QUERY = "{_id:{$in:#}}";
 
     MongoCollection collection;
 
     public SingerRepository(DB db) {
         super(db);
-        collection = jongo.getCollection("singers");
+        collection = jongo.getCollection(COLLECTION_NAME);
     }
 
     @Override
     public long count() {
-        return 0;
+        return collection.count();
     }
 
     @Override
@@ -55,7 +56,7 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     @Override
     public Iterable<Singer> findAll(Iterable<String> strings) {
-        return null;
+        return collection.find(IDS_QUERY, strings).as(Singer.class);
     }
 
     @Override

@@ -4,7 +4,9 @@ import com.codahale.metrics.health.HealthCheckRegistry;
 import de.atomfrede.github.karaoke.server.config.KaraokeConfiguration;
 import de.atomfrede.github.karaoke.server.mongo.JongoManaged;
 import de.atomfrede.github.karaoke.server.mongo.MongoHealthCheck;
+import de.atomfrede.github.karaoke.server.resource.PairingResource;
 import de.atomfrede.github.karaoke.server.resource.PingResource;
+import de.atomfrede.github.karaoke.server.resource.SingerResource;
 import io.dropwizard.jersey.setup.JerseyEnvironment;
 import io.dropwizard.lifecycle.setup.LifecycleEnvironment;
 import io.dropwizard.setup.Environment;
@@ -55,6 +57,28 @@ public class KaraokeApplicationTest {
         new Verifications() {{
 
             jersey.register(withInstanceOf(PingResource.class));
+        }};
+    }
+
+    @Test
+    public void shouldAddSingerResource() throws Exception {
+
+        application.run(configuration, environment);
+
+        new Verifications() {{
+
+            jersey.register(withInstanceOf(SingerResource.class));
+        }};
+    }
+
+    @Test
+    public void shouldAddPairingResource() throws Exception {
+
+        application.run(configuration, environment);
+
+        new Verifications() {{
+
+            jersey.register(withInstanceOf(PairingResource.class));
         }};
     }
 

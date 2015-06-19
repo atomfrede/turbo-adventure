@@ -7,6 +7,7 @@ import io.dropwizard.testing.junit.ResourceTestRule;
 import org.junit.ClassRule;
 import org.junit.Test;
 
+import javax.ws.rs.WebApplicationException;
 import java.util.Arrays;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -22,6 +23,22 @@ public class SingerResourceTest {
     @ClassRule
     public static final ResourceTestRule resources = ResourceTestRule.builder()
             .addResource(new SingerResource(repository)).build();
+
+    @Test(expected = WebApplicationException.class)
+    public void shouldReturnNotFoundWhenNotFound() {
+
+        when(repository.findOne("123")).thenReturn(null);
+
+        try {
+            resources.client().target("/singer/123").request().get(Singer.class);
+        } catch (WebApplicationException e) {
+
+            assertThat(e.getResponse().getStatus(), is(404));
+            throw e;
+        }
+
+
+    }
 
     @Test
     public void shouldGetAllSingers() {

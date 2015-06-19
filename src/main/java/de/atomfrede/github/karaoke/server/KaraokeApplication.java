@@ -7,6 +7,8 @@ import com.mongodb.ServerAddress;
 import de.atomfrede.github.karaoke.server.config.KaraokeConfiguration;
 import de.atomfrede.github.karaoke.server.mongo.MongoHealthCheck;
 import de.atomfrede.github.karaoke.server.mongo.SingerRepository;
+import de.atomfrede.github.karaoke.server.mongo.SongRepository;
+import de.atomfrede.github.karaoke.server.resource.PairingResource;
 import de.atomfrede.github.karaoke.server.resource.PingResource;
 import de.atomfrede.github.karaoke.server.resource.SingerResource;
 import de.sajato.logw.Logw;
@@ -47,8 +49,14 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
         final SingerRepository singerRepository = new SingerRepository(new DB(mongo, configuration.mongodb));
         environment.lifecycle().manage(singerRepository);
 
+        final SongRepository songRepository = new SongRepository(new DB(mongo, configuration.mongodb));
+        environment.lifecycle().manage(songRepository);
+
         final SingerResource singerResource = new SingerResource(singerRepository);
         environment.jersey().register(singerResource);
+
+        final PairingResource pairingResource = new PairingResource(singerRepository, songRepository);
+        environment.jersey().register(pairingResource);
 
         PingResource pingResource = new PingResource();
 

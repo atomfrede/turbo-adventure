@@ -104,31 +104,27 @@
   </build>
   <repositories>
     <repository>
-      <releases/>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>cloudbees-jongo-early-release</id>
-      <url>http://repository-jongo.forge.cloudbees.com/release</url>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
     </repository>
   </repositories>
   <dependencies>
     <dependency>
       <groupId>org.jmockit</groupId>
       <artifactId>jmockit</artifactId>
-      <version>1.16</version>
+      <version>1.17</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
   <properties>
     <dropwizard.java8.version>0.8.0-2</dropwizard.java8.version>
-    <mongo.java.driver.version>3.0.0</mongo.java.driver.version>
+    <mongo.java.driver.version>3.0.2</mongo.java.driver.version>
     <dropwizard.version>0.8.1</dropwizard.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jacoco.version>0.7.4.201502262128</jacoco.version>
-    <jackson.joda.version>2.5.2</jackson.joda.version>
-    <jmockit.version>1.16</jmockit.version>
-    <jongo.version>1.2-early-20150210-0143</jongo.version>
+    <jacoco.version>0.7.5.201505241946</jacoco.version>
+    <jackson.joda.version>2.5.3</jackson.joda.version>
+    <jmockit.version>1.17</jmockit.version>
+    <jongo.version>1.2</jongo.version>
     <coveralls.maven.vesion>3.1.0</coveralls.maven.vesion>
   </properties>
 </project>
