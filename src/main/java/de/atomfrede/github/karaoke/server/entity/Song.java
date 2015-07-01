@@ -18,6 +18,14 @@ public class Song {
 
     }
 
+    public Song(String id) {
+        this._id = id;
+    }
+
+    public String id() {
+        return _id;
+    }
+
     public String title() {
         return title;
     }
