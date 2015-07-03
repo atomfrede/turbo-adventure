@@ -69,11 +69,17 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
 
     private void migrateDatabase(MongoClient mongo, String dbName) {
 
-        Mongeez mongeez = new Mongeez();
-        mongeez.setFile(new ClassPathResource("/path_to/mongeez.xml"));
-        mongeez.setMongo(mongo);
-        mongeez.setDbName(dbName);
-        mongeez.process();
+        try {
+            Mongeez mongeez = new Mongeez();
+            mongeez.setFile(new ClassPathResource("/mongeez/master.xml"));
+            mongeez.setMongo(mongo);
+            mongeez.setDbName(dbName);
+            mongeez.process();
+        } catch (Exception e) {
+
+            Logw.error("Migration of MongoDB failed!", e);
+        }
+
     }
 
 }

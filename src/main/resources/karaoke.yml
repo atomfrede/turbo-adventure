@@ -1,8 +1,6 @@
 mongohost: ${MONGO_DB_MASTER_SERVICE_HOST}
 mongoport: ${MONGO_DB_MASTER_SERVICE_PORT}
 mongodb: karaokedb
-singerdb: singer
-songsb: song
 
 server:
   type: simple
