@@ -7,7 +7,7 @@ import org.jongo.MongoCollection;
 
 public class SingerRepository extends JongoManaged implements CrudRepository<Singer, String> {
 
-    final String COLLECTION_NAME = "singers";
+    final String COLLECTION_NAME = "singer";
     final String ID_QUERY = "{_id:#}";
     final String IDS_QUERY = "{_id:{$in:#}}";
 

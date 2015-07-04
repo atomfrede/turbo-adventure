@@ -1,0 +1,30 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-1" author="turbo-adventure">
+        <script>
+            db.singer.insert(
+            {
+            "_id" : "0",
+            "firstname" : "John",
+            "lastname" : "Doe
+            });
+            db.singer.insert(
+            {
+            "_id" : "1",
+            "firstname" : "Jane",
+            "lastname" : "Doe
+            });
+            db.singer.insert(
+            {
+            "_id" : "2",
+            "firstname" : "Max",
+            "lastname" : "Mustermann
+            });
+            db.singer.insert(
+            {
+            "_id" : "3",
+            "firstname" : "Maxi",
+            "lastname" : "Musterfrau
+            });
+        </script>
+    </changeSet>
+</mongoChangeLog>

@@ -13,4 +13,6 @@ public class KaraokeConfiguration extends Configuration {
 
     @JsonProperty
     public String mongodb = "karaokeDb";
+
+
 }
