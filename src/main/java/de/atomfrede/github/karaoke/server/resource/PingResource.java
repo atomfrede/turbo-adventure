@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.net.InetAddress;
 
 @Path("/ping")
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,7 +18,7 @@ public class PingResource {
     @GET
     @Timed
     @Path("pong")
-    public Pong pong() {
+    public Pong pong() throws UnknownHostException {
         return new Pong(InetAddress.getLocalHost().getHostName() + "");
     }
 }
