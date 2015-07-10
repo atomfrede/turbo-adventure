@@ -18,6 +18,6 @@ public class PingResource {
     @Timed
     @Path("pong")
     public Pong pong() {
-        return new Pong();
+        return new Pong(InetAddress.getLocalHost().getHostName());
     }
 }
