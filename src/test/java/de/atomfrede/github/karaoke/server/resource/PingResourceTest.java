@@ -37,7 +37,6 @@ public class PingResourceTest {
         Pong p = resources.client().target("/ping/pong").request().get(Pong.class);
 
         assertThat(p, notNullValue());
-        assertThat(p.msg, is("Pong"));
 
     }
 }

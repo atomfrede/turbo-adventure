@@ -60,11 +60,19 @@
 			<version>${jongo.version}</version>
 		</dependency>
 
+        <!--
 		<dependency>
 			<groupId>org.mongeez</groupId>
 			<artifactId>mongeez</artifactId>
 			<version>0.9.4</version>
 		</dependency>
+		-->
+
+        <dependency>
+            <groupId>com.github.atomfrede</groupId>
+            <artifactId>mongeez</artifactId>
+            <version>aa45f0ffd9</version>
+        </dependency>
 
 		<dependency>
 			<groupId>io.dropwizard</groupId>
