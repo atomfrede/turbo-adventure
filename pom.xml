@@ -11,7 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<dropwizard.version>0.8.1</dropwizard.version>
+		<dropwizard.version>0.8.2</dropwizard.version>
 		<dropwizard.java8.version>0.8.0-2</dropwizard.java8.version>
 		<mongo.java.driver.version>3.0.2</mongo.java.driver.version>
 		<jongo.version>1.2</jongo.version>

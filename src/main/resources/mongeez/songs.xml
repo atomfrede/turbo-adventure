@@ -1,10 +1,10 @@
 <mongoChangeLog>
     <changeSet changeId="ChangeSet-2" author="turbo-adventure">
         <script>
-            db.song.insert({ "Title" : "Jackson", "Interpreter": "Johnny Cash and June Carter"});
-            db.song.insert({ "Title" : "Where the Wild Roses grow", "Interpreter": "Nick Cave and Kylie Minogue"});
-            db.song.insert({ "Title" : "Up Where We Belong", "Interpreter": "Joe Cocker and Jennifer Warnes"});
-            db.song.insert({ "Title" : "Ebony And Ivory", "Interpreter": "Paul McCartney and Stevie Wonder"});
+            db.song.insert({ "title" : "Jackson", "interpreter": "Johnny Cash and June Carter"});
+            db.song.insert({ "title" : "Where the Wild Roses grow", "interpreter": "Nick Cave and Kylie Minogue"});
+            db.song.insert({ "title" : "Up Where We Belong", "interpreter": "Joe Cocker and Jennifer Warnes"});
+            db.song.insert({ "title" : "Ebony And Ivory", "interpreter": "Paul McCartney and Stevie Wonder"});
         </script>
     </changeSet>
 </mongoChangeLog>

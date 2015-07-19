@@ -1,10 +1,10 @@
 <mongoChangeLog>
     <changeSet changeId="ChangeSet-1" author="turbo-adventure">
         <script>
-            db.user.insert({ "Firstname" : "John", "Lastname": "Doe"});
-            db.user.insert({ "Firstname" : "Jane", "Lastname": "Doe"});
-            db.user.insert({ "Firstname" : "Max", "Lastname": "Mustermann"});
-            db.user.insert({ "Firstname" : "Maxi", "Lastname": "Musterfrau"});
+            db.singer.insert({ "firstname" : "John", "lastname": "Doe"});
+            db.singer.insert({ "firstname" : "Jane", "lastname": "Doe"});
+            db.singer.insert({ "firstname" : "Max", "lastname": "Mustermann"});
+            db.singer.insert({ "firstname" : "Maxi", "lastname": "Musterfrau"});
         </script>
     </changeSet>
 </mongoChangeLog>

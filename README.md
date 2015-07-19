@@ -9,6 +9,10 @@
 
 Karaoke Pair Builder Server and Services build with dropwizard.io
 
+## Start local development mongo db
+
+``./mongod --dbpath ~/mongo/data/db``
+
 ## Docker
 
 The application is available at docker hub:
