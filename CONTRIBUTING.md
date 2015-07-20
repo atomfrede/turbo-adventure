@@ -30,13 +30,14 @@ Before you submit your pull request consider the following guidelines:
 * In GitHub, send a pull request to `atomfrede/turbo-adventure:master`.
 * If we suggest changes then
   * Make the required updates.
-  * Re-run the JHipster tests on your sample generated project to ensure tests are still passing.
+  * Re-run the turbo-adventure 
   * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     ```shell
     git rebase master -i
     git push -f
     ```
+    
 #### After your pull request is merged
 
 After your pull request is merged, you can safely delete your branch and pull the changes
