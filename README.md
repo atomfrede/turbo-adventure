@@ -9,9 +9,24 @@
 
 Karaoke Pair Builder Server and Services build with dropwizard.io
 
-## Start local development mongo db
+## What is this?
+
+More or less this is a project to evaluate the capabilities of dropwizard.io as a micorservice framework. The purpose of this project is to provide a simple website that generate pairs of employees and a song they are supposed to sing along with the karaoke machine.
+
+### Local development
+
+#### MongoDB
 
 ``./mongod --dbpath ~/mongo/data/db``
+
+or use the official mongo db docker container
+
+#### turbo-adventure
+
+``mvn package``
+``java -jar target/catalog-page-generator-0.1-SNAPSHOT.jar server``
+
+Or run the ``main`` method in ``KaraokeApplication.java`` in the IDE of your choice.
 
 ## Docker
 
