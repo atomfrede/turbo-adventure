@@ -5,6 +5,7 @@
             db.song.insert({ "title" : "Where the Wild Roses grow", "interpreter": "Nick Cave and Kylie Minogue"});
             db.song.insert({ "title" : "Up Where We Belong", "interpreter": "Joe Cocker and Jennifer Warnes"});
             db.song.insert({ "title" : "Ebony And Ivory", "interpreter": "Paul McCartney and Stevie Wonder"});
+            db.song.insert({ "title" : "Endless Love", "interpreter": "Diana Ross and Lionel Richie"});
         </script>
     </changeSet>
 </mongoChangeLog>
