@@ -14,6 +14,7 @@ import de.atomfrede.github.karaoke.server.resource.SingerResource;
 import de.atomfrede.github.karaoke.server.resource.SongResource;
 import de.sajato.logw.Logw;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.java8.Java8Bundle;
@@ -35,6 +36,7 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
                 new SubstitutingSourceProvider(bootstrap.getConfigurationSourceProvider(), new EnvironmentVariableSubstitutor(false))
         );
         bootstrap.addBundle(new Java8Bundle());
+        bootstrap.addBundle(new AssetsBundle("/ui/", "/ui", "index.html"));
     }
 
     @Override

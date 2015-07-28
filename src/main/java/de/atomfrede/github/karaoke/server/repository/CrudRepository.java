@@ -25,4 +25,8 @@ public interface CrudRepository<T, ID extends Serializable> {
     <S extends T> Iterable<S> save(Iterable<S> entities);
 
     <S extends T> S save(S entity);
+
+    <S extends T> Iterable<S> update(Iterable<S> entities);
+
+    <S extends T> S update(S entity);
 }

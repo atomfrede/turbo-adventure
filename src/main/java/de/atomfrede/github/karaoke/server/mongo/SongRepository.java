@@ -3,7 +3,12 @@ package de.atomfrede.github.karaoke.server.mongo;
 import com.mongodb.DB;
 import de.atomfrede.github.karaoke.server.entity.Song;
 import de.atomfrede.github.karaoke.server.repository.CrudRepository;
+import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SongRepository extends JongoManaged implements CrudRepository<Song, String> {
 
@@ -25,7 +30,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public void delete(String s) {
-        collection.remove(ID_QUERY, s);
+        collection.remove(ID_QUERY, new ObjectId(s));
     }
 
     @Override
@@ -35,7 +40,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public void delete(Song entity) {
-        collection.remove(ID_QUERY, entity.id());
+        collection.remove(ID_QUERY, new ObjectId(entity.id()));
     }
 
     @Override
@@ -60,7 +65,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public Song findOne(String s) {
-        return collection.findOne(ID_QUERY, s).as(Song.class);
+        return collection.findOne(ID_QUERY, new ObjectId(s)).as(Song.class);
     }
 
     @Override
@@ -74,4 +79,17 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
         collection.save(entity);
         return entity;
     }
+
+    @Override
+    public <S extends Song> Iterable<S> update(Iterable<S> entities) {
+        entities.forEach(this::update);
+        return entities;
+    }
+
+    @Override
+    public <S extends Song> S update(S entity) {
+        collection.update(ID_QUERY, new ObjectId(entity.id())).with(entity);
+        return entity;
+    }
+
 }

@@ -77,4 +77,14 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
         return entity;
     }
 
+    @Override
+    public <S extends Singer> Iterable<S> update(Iterable<S> entities) {
+        return null;
+    }
+
+    @Override
+    public <S extends Singer> S update(S entity) {
+        return null;
+    }
+
 }
