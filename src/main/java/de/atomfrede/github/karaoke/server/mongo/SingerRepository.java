@@ -30,7 +30,6 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     @Override
     public void delete(Iterable<? extends Singer> entities) {
-
         entities.forEach(this::delete);
     }
 
@@ -66,7 +65,6 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     @Override
     public <S extends Singer> Iterable<S> save(Iterable<S> entities) {
-
         entities.forEach(this::save);
         return entities;
     }
@@ -88,3 +86,10 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
     }
 
 }
+
+
+
+
+
+
+

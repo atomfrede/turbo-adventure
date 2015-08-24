@@ -1,0 +1,11 @@
+mongohost: localhost
+mongoport: 27017
+mongodb: karaokedb
+
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 3434

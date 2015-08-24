@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.atomfrede.github</groupId>
   <artifactId>karaoke-server</artifactId>
   <version>0.1-SNAPSHOT</version>
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <versionRange>[2.9.1,)</versionRange>
+                    <goals>
+                      <goal>javadoc</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -112,18 +139,18 @@
     <dependency>
       <groupId>org.jmockit</groupId>
       <artifactId>jmockit</artifactId>
-      <version>1.17</version>
+      <version>1.18</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
   <properties>
     <dropwizard.java8.version>0.8.0-2</dropwizard.java8.version>
     <mongo.java.driver.version>3.0.2</mongo.java.driver.version>
-    <dropwizard.version>0.8.1</dropwizard.version>
+    <dropwizard.version>0.8.2</dropwizard.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jacoco.version>0.7.5.201505241946</jacoco.version>
-    <jackson.joda.version>2.5.3</jackson.joda.version>
-    <jmockit.version>1.17</jmockit.version>
+    <jackson.joda.version>2.5.4</jackson.joda.version>
+    <jmockit.version>1.18</jmockit.version>
     <jongo.version>1.2</jongo.version>
     <coveralls.maven.vesion>3.1.0</coveralls.maven.vesion>
   </properties>
