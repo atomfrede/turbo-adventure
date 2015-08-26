@@ -6,9 +6,6 @@ import de.atomfrede.github.karaoke.server.repository.CrudRepository;
 import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SongRepository extends JongoManaged implements CrudRepository<Song, String> {
 
@@ -30,7 +27,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public void delete(String s) {
-        collection.remove(ID_QUERY, new ObjectId(s));
+        collection.remove(ID_QUERY, s);
     }
 
     @Override
@@ -40,7 +37,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public void delete(Song entity) {
-        collection.remove(ID_QUERY, new ObjectId(entity.id()));
+        collection.remove(ID_QUERY, entity.id());
     }
 
     @Override
@@ -65,7 +62,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public Song findOne(String s) {
-        return collection.findOne(ID_QUERY, new ObjectId(s)).as(Song.class);
+        return collection.findOne(ID_QUERY, s).as(Song.class);
     }
 
     @Override

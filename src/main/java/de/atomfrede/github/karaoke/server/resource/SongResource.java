@@ -20,13 +20,16 @@ public class SongResource {
     }
 
     @GET
+    //Send a request with GET HTTP Method
     @Timed
+    //die @Timed-Annotation ist, um Performance-Metriken zu erheben
     public Songs getSongs() {
 
         return new Songs(songRepository.findAll());
     }
 
-	@POST
+	@POST 
+	//The POST HTTP method is used to add objects to a REST resource
 	@Timed
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Songs saveNewSong(@FormParam("title") String title,

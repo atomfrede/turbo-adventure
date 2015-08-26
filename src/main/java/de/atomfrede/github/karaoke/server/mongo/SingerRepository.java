@@ -3,6 +3,8 @@ package de.atomfrede.github.karaoke.server.mongo;
 import com.mongodb.DB;
 import de.atomfrede.github.karaoke.server.entity.Singer;
 import de.atomfrede.github.karaoke.server.repository.CrudRepository;
+
+import org.bson.types.ObjectId;
 import org.jongo.MongoCollection;
 
 public class SingerRepository extends JongoManaged implements CrudRepository<Singer, String> {
@@ -30,7 +32,6 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     @Override
     public void delete(Iterable<? extends Singer> entities) {
-
         entities.forEach(this::delete);
     }
 
@@ -66,7 +67,6 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     @Override
     public <S extends Singer> Iterable<S> save(Iterable<S> entities) {
-
         entities.forEach(this::save);
         return entities;
     }
@@ -79,12 +79,14 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
 
     @Override
     public <S extends Singer> Iterable<S> update(Iterable<S> entities) {
-        return null;
+    	entities.forEach(this::update);
+        return entities;
     }
 
     @Override
     public <S extends Singer> S update(S entity) {
-        return null;
+    	collection.update(ID_QUERY, new ObjectId(entity.id())).with(entity);
+        return entity;
     }
 
 }

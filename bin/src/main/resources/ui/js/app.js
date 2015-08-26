@@ -6,9 +6,6 @@ turboAdventure.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/songs', {
             templateUrl: 'song/songList.html'
         });
-    $routeProvider.when('/singers', {
-        templateUrl: 'singer/singerList.html'
-    });
 }]);
 
 turboAdventure.config(function (RestangularProvider) {
