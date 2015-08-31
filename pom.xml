@@ -11,12 +11,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<dropwizard.version>0.8.2</dropwizard.version>
+		<dropwizard.version>0.8.4</dropwizard.version>
 		<dropwizard.java8.version>0.8.0-2</dropwizard.java8.version>
-		<mongo.java.driver.version>3.0.2</mongo.java.driver.version>
+		<mongo.java.driver.version>3.0.3</mongo.java.driver.version>
 		<jongo.version>1.2</jongo.version>
-		<jackson.joda.version>2.5.4</jackson.joda.version>
-		<jmockit.version>1.18</jmockit.version>
+		<jackson.joda.version>2.6.1</jackson.joda.version>
+		<jmockit.version>1.19</jmockit.version>
 		<jacoco.version>0.7.5.201505241946</jacoco.version>
 		<coveralls.maven.vesion>3.1.0</coveralls.maven.vesion>
 	</properties>
