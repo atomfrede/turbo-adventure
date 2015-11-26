@@ -15,6 +15,10 @@ More or less this is a project to evaluate the capabilities of dropwizard.io as 
 
 ### Local development
 
+#### Maven Wrapper
+
+If you don't have ``maven`` installed locally you can use the provided maven wrapper. Just execute ``mvnw`` instead of ``mvn``.
+
 #### MongoDB
 
 ``./mongod --dbpath ~/mongo/data/db``
@@ -23,7 +27,7 @@ or use the official mongo db docker container
 
 #### turbo-adventure
 
-``mvn package``
+``mvnw package``
 ``java -jar target/catalog-page-generator-0.1-SNAPSHOT.jar server``
 
 Or run the ``main`` method in ``KaraokeApplication.java`` in the IDE of your choice.
