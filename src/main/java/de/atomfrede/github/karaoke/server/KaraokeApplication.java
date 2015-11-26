@@ -12,7 +12,6 @@ import de.atomfrede.github.karaoke.server.resource.PairingResource;
 import de.atomfrede.github.karaoke.server.resource.PingResource;
 import de.atomfrede.github.karaoke.server.resource.SingerResource;
 import de.atomfrede.github.karaoke.server.resource.SongResource;
-import de.sajato.logw.Logw;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
@@ -41,8 +40,6 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
 
     @Override
     public void run(KaraokeConfiguration configuration, Environment environment) throws Exception {
-
-        Logw.trace("Starting Karaoke Application Server");
 
         MongoClientOptions clientOptions = MongoClientOptions.builder()
                 .connectTimeout(500).build();
@@ -83,7 +80,6 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
             mongeez.process();
         } catch (Exception e) {
 
-            Logw.error("Migration of MongoDB failed!", e);
         }
 
     }

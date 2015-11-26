@@ -99,12 +99,6 @@
 		</dependency>
 
         <dependency>
-            <groupId>com.github.sajato.logw</groupId>
-            <artifactId>logw-slf4j</artifactId>
-            <version>v0.1.0</version>
-        </dependency>
-
-        <dependency>
 			<groupId>org.jmockit</groupId>
 			<artifactId>jmockit</artifactId>
 			<version>${jmockit.version}</version>
