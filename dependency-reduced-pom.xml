@@ -36,7 +36,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>2.10.3</version>
         <executions>
           <execution>
             <id>generate-service-docs</id>
@@ -60,7 +60,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>2.6</version>
         <configuration>
           <archive>
             <manifest>
@@ -71,7 +71,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>2.2</version>
+        <version>2.4.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -139,20 +139,20 @@
     <dependency>
       <groupId>org.jmockit</groupId>
       <artifactId>jmockit</artifactId>
-      <version>1.19</version>
+      <version>1.20</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
   <properties>
-    <dropwizard.java8.version>0.8.0-2</dropwizard.java8.version>
-    <mongo.java.driver.version>3.0.3</mongo.java.driver.version>
-    <dropwizard.version>0.8.4</dropwizard.version>
+    <dropwizard.java8.version>0.9.0-1</dropwizard.java8.version>
+    <mongo.java.driver.version>3.1.1</mongo.java.driver.version>
+    <dropwizard.version>0.9.1</dropwizard.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jacoco.version>0.7.5.201505241946</jacoco.version>
     <jackson.joda.version>2.6.1</jackson.joda.version>
-    <jmockit.version>1.19</jmockit.version>
+    <jmockit.version>1.20</jmockit.version>
     <jongo.version>1.2</jongo.version>
-    <coveralls.maven.vesion>3.1.0</coveralls.maven.vesion>
+    <coveralls.maven.vesion>4.0.0</coveralls.maven.vesion>
   </properties>
 </project>
 
