@@ -110,9 +110,9 @@ For example, here is a good commit message:
 ```
 upgrade to mongo-db-driver 3
 
-upgraded to the latest mongo java driver
+upgrade to the latest mongo java driver
 
-Fix #1234
+fix #1234
 ```
 
 
