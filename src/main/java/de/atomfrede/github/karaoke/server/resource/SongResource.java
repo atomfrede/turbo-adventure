@@ -1,13 +1,14 @@
 package de.atomfrede.github.karaoke.server.resource;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import com.codahale.metrics.annotation.Timed;
 import de.atomfrede.github.karaoke.server.entity.Song;
 import de.atomfrede.github.karaoke.server.entity.Songs;
 import de.atomfrede.github.karaoke.server.mongo.SongRepository;
 import io.dropwizard.jersey.PATCH;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 
 @Path("/song")
 @Produces(MediaType.APPLICATION_JSON)
@@ -69,5 +70,17 @@ public class SongResource {
         songRepository.delete(songId);
 
         return new Songs(songRepository.findAll());
+	}
+
+	@GET
+	@Timed
+	@Path("{id}")
+	public Song getSong(@PathParam("id") final String id) {
+		Song song = songRepository.findOne(id);
+		if (song != null) {
+			return song;
+		} else {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
     }
 }

@@ -1,20 +1,21 @@
 package de.atomfrede.github.karaoke.server.mongo;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
+import java.util.Arrays;
+
 import com.mongodb.DB;
 import de.atomfrede.github.karaoke.server.entity.Singer;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import mockit.integration.junit4.JMockit;
+import org.bson.types.ObjectId;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.Arrays;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
 
 @RunWith(JMockit.class)
 public class SingerRepositoryTest {
@@ -51,11 +52,11 @@ public class SingerRepositoryTest {
 
         new NonStrictExpectations() {{
 
-            mongoCollection.remove("{_id:#}", "42");
+            mongoCollection.remove("{_id:#}", new ObjectId("507f191e810c19729de860ea"));
             times = 1;
         }};
 
-        singerRepository.delete("42");
+        singerRepository.delete("507f191e810c19729de860ea");
     }
 
     @Test
@@ -63,18 +64,18 @@ public class SingerRepositoryTest {
 
         new NonStrictExpectations() {{
 
-            mongoCollection.remove("{_id:#}", "42");
+            mongoCollection.remove("{_id:#}", new ObjectId("507f191e810c19729de860ea"));
             times = 1;
 
-            mongoCollection.remove("{_id:#}", "17");
+            mongoCollection.remove("{_id:#}", new ObjectId("507f191e810c19729de860eb"));
             times = 1;
         }};
 
-        Singer janeDoe = new Singer("42")
+        Singer janeDoe = new Singer("507f191e810c19729de860ea")
                 .setFirstname("Jane")
                 .setLastname("Doe");
 
-        Singer johnDoe = new Singer("17")
+        Singer johnDoe = new Singer("507f191e810c19729de860eb")
                 .setFirstname("John")
                 .setLastname("Doe");
 
@@ -98,16 +99,46 @@ public class SingerRepositoryTest {
 
         new NonStrictExpectations() {{
 
-            mongoCollection.findOne("{_id:#}", "42").as(Singer.class);
+            mongoCollection.findOne("{_id:#}", new ObjectId("507f191e810c19729de860ea")).as(Singer.class);
             times = 1;
             result = new Singer("42");
 
-            mongoCollection.findOne("{_id:#}", "17").as(Singer.class);
+            mongoCollection.findOne("{_id:#}", new ObjectId("507f191e810c19729de860eb")).as(Singer.class);
             times = 1;
             result = null;
         }};
 
-        assertThat(singerRepository.exists("42"), is(true));
-        assertThat(singerRepository.exists("17"), is(false));
+        assertThat(singerRepository.exists("507f191e810c19729de860ea"), is(true));
+        assertThat(singerRepository.exists("507f191e810c19729de860eb"), is(false));
+	}
+
+	@Test
+	public void assertThatFindOneById(){
+
+		SingerRepository singerRepository = new SingerRepository(database);
+		singerRepository.findOne("55dedd2b708db71cb20ca959");
+	}
+
+	@Test
+	public void assertThatFindAllSinger(){
+
+		SingerRepository singerRepository = new SingerRepository(database);
+		singerRepository.findAll();
+	}
+
+	@Test
+	public void assertThatEntetiesCanbeSaved(){
+
+		SingerRepository singerRepository = new SingerRepository(database);
+		singerRepository.save(singerRepository.findOne("55dedd2b708db71cb20ca959"));
+		singerRepository.save(singerRepository.findAll());
+	}
+
+	@Test
+	public void assertThatAllEntitiesCanBeUpdated(){
+
+		SingerRepository singerRepository = new SingerRepository(database);
+		singerRepository.update(singerRepository.findAll());
+
     }
 }
