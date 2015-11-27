@@ -9,6 +9,10 @@
 
 Karaoke Pair Builder Server and Services build with dropwizard.io
 
+## Before you start
+
+**Consider our submission guidelines:** [Contribution Guide](https://github.com/atomfrede/turbo-adventure/blob/master/CONTRIBUTING.md)
+
 ## What is this?
 
 More or less this is a project to evaluate the capabilities of dropwizard.io as a micorservice framework. The purpose of this project is to provide a simple website that generate pairs of employees and a song they are supposed to sing along with the karaoke machine.
