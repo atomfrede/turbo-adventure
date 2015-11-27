@@ -28,9 +28,9 @@ or use the official mongo db docker container
 #### turbo-adventure
 
 ``mvnw package``
-``java -jar target/catalog-page-generator-0.1-SNAPSHOT.jar server``
+``java -jar target/catalog-page-generator-0.1-SNAPSHOT.jar server karaoke.yml``
 
-Or run the ``main`` method in ``KaraokeApplication.java`` in the IDE of your choice.
+Or run the ``main`` method in ``KaraokeApplication.java`` in the IDE of your choice. You need to add the ``server`` start parameter and the configuration file to your run configuration (depends on your IDE how to do it).
 
 ## Docker
 
