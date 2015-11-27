@@ -32,6 +32,8 @@ or use the official mongo db docker container
 
 Or run the ``main`` method in ``KaraokeApplication.java`` in the IDE of your choice. You need to add the ``server`` start parameter and the configuration file to your run configuration (depends on your IDE how to do it).
 
+The user interface is available at ``localhost:3434/ui``
+
 ## Docker
 
 The application is available at docker hub:
