@@ -27,7 +27,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public void delete(String s) {
-        collection.remove(ID_QUERY, s);
+        collection.remove(ID_QUERY, new ObjectId(s));
     }
 
     @Override
@@ -62,7 +62,7 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
 
     @Override
     public Song findOne(String s) {
-        return collection.findOne(ID_QUERY, s).as(Song.class);
+        return collection.findOne(ID_QUERY, new ObjectId(s)).as(Song.class);
     }
 
     @Override
