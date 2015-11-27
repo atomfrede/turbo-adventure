@@ -1,10 +1,5 @@
 package de.atomfrede.github.karaoke.server.mongo;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-
-import java.util.Arrays;
-
 import com.mongodb.DB;
 import de.atomfrede.github.karaoke.server.entity.Singer;
 import mockit.Mocked;
@@ -16,6 +11,11 @@ import org.jongo.MongoCollection;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Arrays;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 @RunWith(JMockit.class)
 public class SingerRepositoryTest {
@@ -110,35 +110,35 @@ public class SingerRepositoryTest {
 
         assertThat(singerRepository.exists("507f191e810c19729de860ea"), is(true));
         assertThat(singerRepository.exists("507f191e810c19729de860eb"), is(false));
-	}
+    }
 
-	@Test
-	public void assertThatFindOneById(){
+    @Test
+    public void assertThatFindOneById() {
 
-		SingerRepository singerRepository = new SingerRepository(database);
-		singerRepository.findOne("55dedd2b708db71cb20ca959");
-	}
+        SingerRepository singerRepository = new SingerRepository(database);
+        singerRepository.findOne("55dedd2b708db71cb20ca959");
+    }
 
-	@Test
-	public void assertThatFindAllSinger(){
+    @Test
+    public void assertThatFindAllSinger() {
 
-		SingerRepository singerRepository = new SingerRepository(database);
-		singerRepository.findAll();
-	}
+        SingerRepository singerRepository = new SingerRepository(database);
+        singerRepository.findAll();
+    }
 
-	@Test
-	public void assertThatEntetiesCanbeSaved(){
+    @Test
+    public void assertThatEntetiesCanbeSaved() {
 
-		SingerRepository singerRepository = new SingerRepository(database);
-		singerRepository.save(singerRepository.findOne("55dedd2b708db71cb20ca959"));
-		singerRepository.save(singerRepository.findAll());
-	}
+        SingerRepository singerRepository = new SingerRepository(database);
+        singerRepository.save(singerRepository.findOne("55dedd2b708db71cb20ca959"));
+        singerRepository.save(singerRepository.findAll());
+    }
 
-	@Test
-	public void assertThatAllEntitiesCanBeUpdated(){
+    @Test
+    public void assertThatAllEntitiesCanBeUpdated() {
 
-		SingerRepository singerRepository = new SingerRepository(database);
-		singerRepository.update(singerRepository.findAll());
+        SingerRepository singerRepository = new SingerRepository(database);
+        singerRepository.update(singerRepository.findAll());
 
     }
 }

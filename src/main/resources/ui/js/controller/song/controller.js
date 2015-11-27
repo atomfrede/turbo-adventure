@@ -13,7 +13,7 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
     $scope.songListLoaded = false;
     $scope.songList = {};
 
-    $scope.initSongList = function(songs) {
+    $scope.initSongList = function (songs) {
         $scope.newSong = null;
         $scope.addNewSong = false;
 
@@ -28,16 +28,16 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
         $scope.initSongList(data.songs);
     });
 
-    $scope.addSong = function() {
+    $scope.addSong = function () {
         $scope.addNewSong = true;
     };
 
-    $scope.cancelAddNewSong = function() {
+    $scope.cancelAddNewSong = function () {
         $scope.newSong = null;
         $scope.addNewSong = false;
     };
 
-    $scope.saveNewSong = function() {
+    $scope.saveNewSong = function () {
         $scope.songListLoaded = false;
 
         var songParameter = {
@@ -56,12 +56,12 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
 
     };
 
-    $scope.editSong = function(song) {
+    $scope.editSong = function (song) {
         $scope.editMode = true;
         $scope.actualEditSong = song;
     };
 
-    $scope.cancelEditSong = function() {
+    $scope.cancelEditSong = function () {
         $scope.editMode = false;
         $scope.songListLoaded = false;
 
@@ -70,7 +70,7 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
         });
     };
 
-    $scope.saveEditedSong = function(song) {
+    $scope.saveEditedSong = function (song) {
         $scope.songListLoaded = false;
 
         var songParameter = {
@@ -89,7 +89,7 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
         });
     };
 
-    $scope.deleteSong = function(song) {
+    $scope.deleteSong = function (song) {
         $scope.songListLoaded = false;
 
         Restangular.one('song/' + song._id).remove().then(function (data) {

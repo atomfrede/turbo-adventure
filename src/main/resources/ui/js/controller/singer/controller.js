@@ -13,7 +13,7 @@ turboAdventure.controller('SingerController', function ($scope, Restangular) {
     $scope.singerListLoaded = false;
     $scope.singerList = {};
 
-    $scope.initSingerList = function(singers) {
+    $scope.initSingerList = function (singers) {
         $scope.newSinger = null;
         $scope.addNewSinger = false;
 
@@ -28,16 +28,16 @@ turboAdventure.controller('SingerController', function ($scope, Restangular) {
         $scope.initSingerList(data.singers);
     });
 
-    $scope.addSinger = function() {
+    $scope.addSinger = function () {
         $scope.addNewSinger = true;
     };
 
-    $scope.cancelAddNewSinger = function() {
+    $scope.cancelAddNewSinger = function () {
         $scope.newSinger = null;
         $scope.addNewSinger = false;
     };
 
-    $scope.saveNewSinger = function() {
+    $scope.saveNewSinger = function () {
         $scope.singerListLoaded = false;
 
         var singerParameter = {
@@ -56,12 +56,12 @@ turboAdventure.controller('SingerController', function ($scope, Restangular) {
 
     };
 
-    $scope.editSinger = function(singer) {
+    $scope.editSinger = function (singer) {
         $scope.editMode = true;
         $scope.actualEditSinger = singer;
     };
 
-    $scope.cancelEditSinger = function() {
+    $scope.cancelEditSinger = function () {
         $scope.editMode = false;
         $scope.singerListLoaded = false;
 
@@ -70,7 +70,7 @@ turboAdventure.controller('SingerController', function ($scope, Restangular) {
         });
     };
 
-    $scope.saveEditedSinger = function(singer) {
+    $scope.saveEditedSinger = function (singer) {
         $scope.singerListLoaded = false;
 
         var singerParameter = {
@@ -89,7 +89,7 @@ turboAdventure.controller('SingerController', function ($scope, Restangular) {
         });
     };
 
-    $scope.deleteSinger = function(singer) {
+    $scope.deleteSinger = function (singer) {
         $scope.singerListLoaded = false;
 
         Restangular.one('singer/' + singer._id).remove().then(function (data) {

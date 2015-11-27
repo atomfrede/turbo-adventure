@@ -1,14 +1,14 @@
 package de.atomfrede.github.karaoke.server.resource;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import com.codahale.metrics.annotation.Timed;
 import de.atomfrede.github.karaoke.server.entity.Song;
 import de.atomfrede.github.karaoke.server.entity.Songs;
 import de.atomfrede.github.karaoke.server.mongo.SongRepository;
 import io.dropwizard.jersey.PATCH;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/song")
 @Produces(MediaType.APPLICATION_JSON)
@@ -29,35 +29,35 @@ public class SongResource {
         return new Songs(songRepository.findAll());
     }
 
-	@POST 
-	//The POST HTTP method is used to add objects to a REST resource
-	@Timed
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public Songs saveNewSong(@FormParam("title") String title,
-							 @FormParam("interpreter") String interpreter) {
+    @POST
+    //The POST HTTP method is used to add objects to a REST resource
+    @Timed
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Songs saveNewSong(@FormParam("title") String title,
+                             @FormParam("interpreter") String interpreter) {
 
-		Song newSong = new Song();
-		newSong.setTitle(title).setInterpreter(interpreter);
+        Song newSong = new Song();
+        newSong.setTitle(title).setInterpreter(interpreter);
 
-		songRepository.save(newSong);
+        songRepository.save(newSong);
 
-		return new Songs(songRepository.findAll());
-	}
+        return new Songs(songRepository.findAll());
+    }
 
     @PATCH
     @Timed
-	@Path("{songId}")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("{songId}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Songs updateSong(@PathParam("songId") String songId,
-							@FormParam("title") String title,
-							@FormParam("interpreter") String interpreter) {
+                            @FormParam("title") String title,
+                            @FormParam("interpreter") String interpreter) {
 
-		if(songRepository.exists(songId)) {
-			Song updateSong = new Song(songId);
-			updateSong.setTitle(title).setInterpreter(interpreter);
+        if (songRepository.exists(songId)) {
+            Song updateSong = new Song(songId);
+            updateSong.setTitle(title).setInterpreter(interpreter);
 
-			songRepository.update(updateSong);
-		}
+            songRepository.update(updateSong);
+        }
 
         return new Songs(songRepository.findAll());
     }
@@ -70,17 +70,17 @@ public class SongResource {
         songRepository.delete(songId);
 
         return new Songs(songRepository.findAll());
-	}
+    }
 
-	@GET
-	@Timed
-	@Path("{id}")
-	public Song getSong(@PathParam("id") final String id) {
-		Song song = songRepository.findOne(id);
-		if (song != null) {
-			return song;
-		} else {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
+    @GET
+    @Timed
+    @Path("{id}")
+    public Song getSong(@PathParam("id") final String id) {
+        Song song = songRepository.findOne(id);
+        if (song != null) {
+            return song;
+        } else {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
     }
 }
