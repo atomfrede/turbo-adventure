@@ -12,6 +12,7 @@ import de.atomfrede.github.karaoke.server.resource.PairingResource;
 import de.atomfrede.github.karaoke.server.resource.PingResource;
 import de.atomfrede.github.karaoke.server.resource.SingerResource;
 import de.atomfrede.github.karaoke.server.resource.SongResource;
+import de.atomfrede.github.karaoke.server.service.PairingService;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
@@ -62,7 +63,9 @@ public class KaraokeApplication extends Application<KaraokeConfiguration> {
         final SongResource songResource = new SongResource(songRepository);
         environment.jersey().register(songResource);
 
-        final PairingResource pairingResource = new PairingResource(singerRepository, songRepository);
+        final PairingService pairingService = new PairingService();
+
+        final PairingResource pairingResource = new PairingResource(singerRepository, songRepository, pairingService);
         environment.jersey().register(pairingResource);
 
         PingResource pingResource = new PingResource();
