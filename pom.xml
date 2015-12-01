@@ -18,7 +18,7 @@
         <jackson.joda.version>2.6.3</jackson.joda.version>
         <jmockit.version>1.20</jmockit.version>
         <jacoco.version>0.7.5.201505241946</jacoco.version>
-        <coveralls.maven.vesion>4.0.0</coveralls.maven.vesion>
+        <coveralls.maven.vesion>4.1.0</coveralls.maven.vesion>
     </properties>
 
     <repositories>
