@@ -141,4 +141,13 @@ public class SingerRepositoryTest {
         singerRepository.update(singerRepository.findAll());
 
     }
+
+
+//    @Test
+//    public void assertThatUniquePairIsReturned() {
+//        new NonStrictExpectations(){{
+//
+//        }};
+//
+//    }
 }

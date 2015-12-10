@@ -9,6 +9,9 @@ turboAdventure.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/singers', {
         templateUrl: 'singer/singerList.html'
     });
+    $routeProvider.when('/match', {
+        templateUrl: 'match/matchPage.html'
+    });
 }]);
 
 turboAdventure.config(function (RestangularProvider) {

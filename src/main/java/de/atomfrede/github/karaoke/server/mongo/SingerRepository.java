@@ -1,10 +1,14 @@
 package de.atomfrede.github.karaoke.server.mongo;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import de.atomfrede.github.karaoke.server.entity.Singer;
 import de.atomfrede.github.karaoke.server.repository.CrudRepository;
 import org.bson.types.ObjectId;
+import org.jongo.FindOne;
 import org.jongo.MongoCollection;
+
+import java.util.Iterator;
 
 public class SingerRepository extends JongoManaged implements CrudRepository<Singer, String> {
 
@@ -87,5 +91,29 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
         collection.update(ID_QUERY, new ObjectId(entity.id())).with(entity);
         return entity;
     }
+
+    public Singer[] getRandomPair(){
+
+        //Return null if collection does not have enough entries to sample a unique pair.
+        if(collection.count() < 2){
+            return null;
+        }
+
+        //Pick random items from collection.
+        Singer[] s = new Singer[]{  MongoUtil.getRandomDocument(collection, Singer.class),
+                                    MongoUtil.getRandomDocument(collection, Singer.class)};
+
+        //Ensure that items are unique. If they aren't pick first or second item from collection.
+        Iterator<Singer> singers = collection.find().as(Singer.class);
+
+        while(s[0].id().equals(s[1].id())) {
+            s[0] = singers.next();
+        }
+        return s;
+    }
+
+
+
+
 
 }
