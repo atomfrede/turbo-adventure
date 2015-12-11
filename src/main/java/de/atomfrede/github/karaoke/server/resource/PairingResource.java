@@ -28,6 +28,11 @@ public class PairingResource {
     public Triple getSingers() {
         Singer[] singers = this.singerRepository.getRandomPair();
         Song song = this.songRepository.getRandom();
+
+        if(singers == null || song == null){
+            return null;
+        }
+
         return new Triple(singers[0], singers[1], song);
     }
 }

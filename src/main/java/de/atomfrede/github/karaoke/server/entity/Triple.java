@@ -17,4 +17,8 @@ public class Triple {
         right = r;
         songToSing = s;
     }
+
+    public Singer left(){return left;}
+    public Singer right(){return right;}
+    public Song songToSing(){return songToSing;}
 }

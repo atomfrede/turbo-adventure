@@ -95,7 +95,7 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
     public Singer[] getRandomPair(){
 
         //Return null if collection does not have enough entries to sample a unique pair.
-        if(collection.count() < 2){
+        if(this.count() < 2){
             return null;
         }
 
@@ -104,16 +104,12 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
                                     MongoUtil.getRandomDocument(collection, Singer.class)};
 
         //Ensure that items are unique. If they aren't pick first or second item from collection.
-        Iterator<Singer> singers = collection.find().as(Singer.class);
-
-        while(s[0].id().equals(s[1].id())) {
-            s[0] = singers.next();
+        if(s[0].id().equals(s[1].id())){
+            Iterator<Singer> singers = collection.find().as(Singer.class);
+            while(s[0].id().equals(s[1].id())) {
+                s[0] = singers.next();
+            }
         }
         return s;
     }
-
-
-
-
-
 }
