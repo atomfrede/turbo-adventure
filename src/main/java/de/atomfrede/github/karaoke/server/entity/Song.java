@@ -16,9 +16,9 @@ public class Song {
     @JsonProperty
     private double random;
     @JsonProperty
-    private boolean femaleVoice;
+    private boolean femaleVoice = false;
     @JsonProperty
-    private boolean maleVoice;
+    private boolean maleVoice = false;
 
     public Song() {
         this.random = Math.random();

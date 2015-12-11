@@ -41,7 +41,7 @@ public class PairingResourceTest {
 
         new NonStrictExpectations() {{
 
-            singerRepository.getRandomPair();
+            singerRepository.getRandomPair(false, false);
             times = 1;
             result = new Singer[]{new Singer(), new Singer()};
 
@@ -59,7 +59,7 @@ public class PairingResourceTest {
 
         new NonStrictExpectations() {{
 
-            singerRepository.getRandomPair();
+            singerRepository.getRandomPair(false, false);
             times = 1;
             result = null;
         }};
@@ -73,7 +73,7 @@ public class PairingResourceTest {
 
         new NonStrictExpectations() {{
 
-            singerRepository.getRandomPair();
+            singerRepository.getRandomPair(false, false);
             times = 1;
             result = new Singer[]{new Singer("1"), new Singer("2")};
 
