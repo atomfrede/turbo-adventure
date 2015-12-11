@@ -42,7 +42,9 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
 
         var songParameter = {
             "title": $scope.newSong.title,
-            "interpreter": $scope.newSong.interpreter
+            "interpreter": $scope.newSong.interpreter,
+            "femaleVoice": $scope.newSong.femaleVoice,
+            "maleVoice": $scope.newSong.maleVoice
         };
         var encodedFormData = $.param(songParameter);
 
@@ -76,7 +78,9 @@ turboAdventure.controller('SongController', function ($scope, Restangular) {
         var songParameter = {
             "_id": song._id,
             "title": song.title,
-            "interpreter": song.interpreter
+            "interpreter": song.interpreter,
+            "femaleVoice": song.femaleVoice,
+            "maleVoice": song.maleVoice
         };
         var encodedFormData = $.param(songParameter);
 

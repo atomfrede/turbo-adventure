@@ -1,11 +1,11 @@
 <mongoChangeLog>
     <changeSet changeId="ChangeSet-2" author="turbo-adventure">
         <script>
-            db.song.insert({ "title" : "Jackson", "interpreter": "Johnny Cash and June Carter", "random": Math.random()});
-            db.song.insert({ "title" : "Where the Wild Roses grow", "interpreter": "Nick Cave and Kylie Minogue", "random": Math.random()});
-            db.song.insert({ "title" : "Up Where We Belong", "interpreter": "Joe Cocker and Jennifer Warnes", "random": Math.random()});
-            db.song.insert({ "title" : "Ebony And Ivory", "interpreter": "Paul McCartney and Stevie Wonder", "random": Math.random()});
-            db.song.insert({ "title" : "Somethin' Stupid", "interpreter": "Nancy Sinatra and Frank Sinatra", "random": Math.random()});
+            db.song.insert({ "title" : "Jackson", "interpreter": "Johnny Cash and June Carter", "random": Math.random(), "femaleVoice":true, "maleVoice":true});
+            db.song.insert({ "title" : "Where the Wild Roses grow", "interpreter": "Nick Cave and Kylie Minogue", "random": Math.random(), "femaleVoice":true, "maleVoice":true});
+            db.song.insert({ "title" : "Up Where We Belong", "interpreter": "Joe Cocker and Jennifer Warnes", "random": Math.random(), "femaleVoice":true, "maleVoice":true});
+            db.song.insert({ "title" : "Ebony And Ivory", "interpreter": "Paul McCartney and Stevie Wonder", "random": Math.random(), "femaleVoice":true, "maleVoice":true});
+            db.song.insert({ "title" : "Somethin' Stupid", "interpreter": "Nancy Sinatra and Frank Sinatra", "random": Math.random(), "femaleVoice":true, "maleVoice":true});
         </script>
     </changeSet>
 </mongoChangeLog>

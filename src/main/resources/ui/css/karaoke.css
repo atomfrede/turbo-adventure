@@ -13,3 +13,8 @@
 .list-group-striped > div:nth-of-type(odd) {
     background-color: #f9f9f9;
 }
+
+.form-sub-title {
+    font-weight:initial;
+    margin-top:3px;
+}

@@ -15,6 +15,10 @@ public class Song {
     private String interpreter;
     @JsonProperty
     private double random;
+    @JsonProperty
+    private boolean femaleVoice;
+    @JsonProperty
+    private boolean maleVoice;
 
     public Song() {
         this.random = Math.random();
@@ -42,8 +46,21 @@ public class Song {
         return interpreter;
     }
 
+    public boolean femaleVoice() {
+        return femaleVoice;
+    }
+
+    public boolean maleVoice() {
+        return maleVoice;
+    }
+
     public Song setInterpreter(String interpreter) {
         this.interpreter = interpreter;
+        return this;
+    }
+    public Song setVoices(boolean female, boolean male){
+        this.femaleVoice = female;
+        this.maleVoice = male;
         return this;
     }
 }

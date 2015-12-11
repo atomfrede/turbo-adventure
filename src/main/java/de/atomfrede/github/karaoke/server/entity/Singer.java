@@ -15,6 +15,9 @@ public class Singer {
     private String lastname;
     @JsonProperty
     private double random;
+    //binary gender 0=female 1=male
+    @JsonProperty
+    private boolean gender;
 
 
     public Singer() {
@@ -38,6 +41,8 @@ public class Singer {
         return this.lastname;
     }
 
+    public boolean gender() { return this.gender;}
+
     public Singer setFirstname(final String firstname) {
         this.firstname = firstname;
         return this;
@@ -45,6 +50,11 @@ public class Singer {
 
     public Singer setLastname(final String lastname) {
         this.lastname = lastname;
+        return this;
+    }
+
+    public Singer setGender(final boolean gender){
+        this.gender = gender;
         return this;
     }
 
