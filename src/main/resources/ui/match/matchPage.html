@@ -7,4 +7,16 @@
     <div ng-show="clicked">
         <p>{{left.firstname}} {{left.lastname}} and {{right.firstname}} {{right.lastname}} will now sing {{song.title}} by {{song.interpreter}}.</p>
     </div>
+    <br />
+    <div class="col-md-12">
+        <div class="list-group-item" ng-repeat="pairing in history">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4 class="list-group-item-heading">{{pairing.left.firstname}} {{pairing.left.lastname}} and {{pairing.right.firstname}} {{pairing.right.lastname}}</h4>
+
+                    <p class="list-group-item-text"><i>{{pairing.songToSing.title}} by {{pairing.songToSing.interpreter}}</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

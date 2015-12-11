@@ -3,6 +3,7 @@ package de.atomfrede.github.karaoke.server.resource;
 import de.atomfrede.github.karaoke.server.entity.Singer;
 import de.atomfrede.github.karaoke.server.entity.Song;
 import de.atomfrede.github.karaoke.server.entity.Triple;
+import de.atomfrede.github.karaoke.server.mongo.PairingRepository;
 import de.atomfrede.github.karaoke.server.mongo.SingerRepository;
 import de.atomfrede.github.karaoke.server.mongo.SongRepository;
 
@@ -29,11 +30,14 @@ public class PairingResourceTest {
     @Mocked
     SongRepository songRepository;
 
+    @Mocked
+    PairingRepository pairingRepository;
+
     PairingResource pairingResource;
 
     @Before
     public void setup() {
-        pairingResource = new PairingResource(singerRepository,songRepository);
+        pairingResource = new PairingResource(singerRepository,songRepository,pairingRepository);
     }
 
     @Test
@@ -50,7 +54,7 @@ public class PairingResourceTest {
             result = new Song();
         }};
 
-        Triple t = pairingResource.getSingers();
+        Triple t = pairingResource.generatePairing();
         assertThat( t == null, is(false));
     }
 
@@ -64,7 +68,7 @@ public class PairingResourceTest {
             result = null;
         }};
 
-        Triple t = pairingResource.getSingers();
+        Triple t = pairingResource.generatePairing();
         assertThat(t == null, is(true));
     }
 
@@ -82,7 +86,7 @@ public class PairingResourceTest {
             result = new Song();
         }};
 
-        Triple t = pairingResource.getSingers();
+        Triple t = pairingResource.generatePairing();
         assertThat( t.left().id().equals(t.right().id()), is(false));
     }
 }

@@ -1,11 +1,9 @@
 package de.atomfrede.github.karaoke.server.mongo;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import de.atomfrede.github.karaoke.server.entity.Singer;
 import de.atomfrede.github.karaoke.server.repository.CrudRepository;
 import org.bson.types.ObjectId;
-import org.jongo.FindOne;
 import org.jongo.MongoCollection;
 
 import java.util.Iterator;
