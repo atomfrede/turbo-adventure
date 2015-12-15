@@ -13,11 +13,16 @@ public class Singer {
     private String firstname;
     @JsonProperty
     private String lastname;
+    @JsonProperty
+    private double random;
+
 
     public Singer() {
+        this.random = Math.random();
     }
 
     public Singer(String id) {
+        this();
         this._id = id;
     }
 

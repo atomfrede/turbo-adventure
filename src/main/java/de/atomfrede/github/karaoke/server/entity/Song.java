@@ -13,12 +13,15 @@ public class Song {
     private String title;
     @JsonProperty
     private String interpreter;
+    @JsonProperty
+    private double random;
 
     public Song() {
-
+        this.random = Math.random();
     }
 
     public Song(String id) {
+        this();
         this._id = id;
     }
 

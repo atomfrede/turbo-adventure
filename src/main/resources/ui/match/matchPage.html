@@ -1,0 +1,10 @@
+<div class="container-fluid margin-top-15" ng-controller="MatchController">
+    <div class="col-md-2">
+        <button type="button" class="btn btn-primary pull-right margin-right-10" ng-click="createNewMatch();">
+            Create Match
+        </button>
+    </div>
+    <div ng-show="clicked">
+        <p>{{left.firstname}} {{left.lastname}} and {{right.firstname}} {{right.lastname}} will now sing {{song.title}} by {{song.interpreter}}.</p>
+    </div>
+</div>

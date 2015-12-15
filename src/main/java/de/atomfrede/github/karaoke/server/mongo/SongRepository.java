@@ -89,4 +89,8 @@ public class SongRepository extends JongoManaged implements CrudRepository<Song,
         return entity;
     }
 
+    public Song getRandom(){
+        return MongoUtil.getRandomDocument(collection, Song.class);
+    }
+
 }
