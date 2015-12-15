@@ -31,10 +31,13 @@ public class SongResource {
     @Timed
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Songs saveNewSong(@FormParam("title") String title,
-                             @FormParam("interpreter") String interpreter) {
+                             @FormParam("interpreter") String interpreter,
+                             @FormParam("femaleVoice") boolean femaleVoice,
+                             @FormParam("maleVoice") boolean maleVoice) {
 
         Song newSong = new Song();
         newSong.setTitle(title).setInterpreter(interpreter);
+        newSong.setVoices(femaleVoice, maleVoice);
 
         songRepository.save(newSong);
 
@@ -47,11 +50,14 @@ public class SongResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Songs updateSong(@PathParam("songId") String songId,
                             @FormParam("title") String title,
-                            @FormParam("interpreter") String interpreter) {
+                            @FormParam("interpreter") String interpreter,
+                            @FormParam("femaleVoice") boolean femaleVoice,
+                            @FormParam("maleVoice") boolean maleVoice) {
 
         if (songRepository.exists(songId)) {
             Song updateSong = new Song(songId);
             updateSong.setTitle(title).setInterpreter(interpreter);
+            updateSong.setVoices(femaleVoice, maleVoice);
 
             songRepository.update(updateSong);
         }

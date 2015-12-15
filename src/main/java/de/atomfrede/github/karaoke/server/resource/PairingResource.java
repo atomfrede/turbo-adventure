@@ -26,8 +26,8 @@ public class PairingResource {
     @GET
     @Timed
     public Triple getSingers() {
-        Singer[] singers = this.singerRepository.getRandomPair();
         Song song = this.songRepository.getRandom();
+        Singer[] singers = this.singerRepository.getRandomPair(song.femaleVoice(), song.maleVoice());
 
         if(singers == null || song == null){
             return null;

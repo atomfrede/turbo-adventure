@@ -35,10 +35,12 @@ public class SingerResource {
     @Timed
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Singers saveNewSinger(@FormParam("firstname") String firstname,
-                                 @FormParam("lastname") String lastname) {
+                                 @FormParam("lastname") String lastname,
+                                 @FormParam("gender") boolean gender) {
 
         Singer newSinger = new Singer();
         newSinger.setFirstname(firstname).setLastname(lastname);
+        newSinger.setGender(gender);
 
         singerRepository.save(newSinger);
 
@@ -52,11 +54,13 @@ public class SingerResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Singers updateSinger(@PathParam("singerId") String singerId,
                                 @FormParam("firstname") String firstname,
-                                @FormParam("lastname") String lastname) {
+                                @FormParam("lastname") String lastname,
+                                @FormParam("gender") boolean gender) {
 
         if (singerRepository.exists(singerId)) {
             Singer updateSinger = new Singer(singerId);
             updateSinger.setFirstname(firstname).setLastname(lastname);
+            updateSinger.setGender(gender);
 
             singerRepository.update(updateSinger);
         }

@@ -92,20 +92,38 @@ public class SingerRepository extends JongoManaged implements CrudRepository<Sin
         return entity;
     }
 
-    public Singer[] getRandomPair(){
+    public Singer[] getRandomPair(boolean female, boolean male){
 
         //Return null if collection does not have enough entries to sample a unique pair.
         if(this.count() < 2){
             return null;
         }
 
+        //If song has neither male nor female voices, select randomly.
+        String queryA = "";
+        String queryB = "";
+        //If song has both male and female voices, select one of each.
+        if(female & male){
+            queryA = "{gender: true}";
+            queryB = "{gender: false}";
+        }
+        //If song has only female or only male voices, select only those.
+        if(!female & male){
+            queryA = "{gender: true}";
+            queryB = "{gender: true}";
+        }
+        if(female & !male){
+            queryA = "{gender: false}";
+            queryB = "{gender: false}";
+        }
+
         //Pick random items from collection.
-        Singer[] s = new Singer[]{  MongoUtil.getRandomDocument(collection, Singer.class),
-                                    MongoUtil.getRandomDocument(collection, Singer.class)};
+        Singer[] s = new Singer[]{  MongoUtil.getRandomDocument(collection, Singer.class, queryA),
+                                    MongoUtil.getRandomDocument(collection, Singer.class, queryB)};
 
         //Ensure that items are unique. If they aren't pick first or second item from collection.
         if(s[0].id().equals(s[1].id())){
-            Iterator<Singer> singers = collection.find().as(Singer.class);
+            Iterator<Singer> singers = collection.find(queryA).as(Singer.class);
             while(s[0].id().equals(s[1].id())) {
                 s[0] = singers.next();
             }

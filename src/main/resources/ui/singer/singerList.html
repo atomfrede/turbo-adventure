@@ -48,6 +48,21 @@
                                 <input type="text" class="form-control" id="singerLastname" ng-model="singer.lastname">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Gender</label>
+                            <div class="col-sm-10">
+                                <div class="col-sm-10">
+                                    <label class="col-sm-2 control-label form-sub-title" for="newSingerMale" >
+                                        <input class="col-sm-6"id="singerMale" type="radio" name="gender"
+                                               ng-model="singer.gender" ng-value="true">Male
+                                    </label>
+                                    <label class="col-sm-2 control-label form-sub-title" for="newSingerFemale">
+                                        <input class="col-sm-1" id="singerFemale"type="radio" name="gender"
+                                               ng-model="singer.gender" ng-value="false">Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
 
@@ -91,6 +106,21 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="newSingerLastname" placeholder="Lastname"
                                    ng-model="newSinger.lastname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Gender</label>
+                        <div class="col-sm-10">
+                            <div class="col-sm-10">
+                                <label class="col-sm-2 control-label form-sub-title" for="newSingerMale" >
+                                    <input class="col-sm-6"id="newSingerMale" type="radio" name="gender"
+                                           ng-model="newSinger.gender" ng-value="true" ng-checked="true">Male
+                                </label>
+                                <label class="col-sm-2 control-label form-sub-title" for="newSingerFemale">
+                                    <input class="col-sm-1" id="newSingerFemale"type="radio" name="gender"
+                                           ng-model="newSinger.gender" ng-value="false">Female
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </form>
