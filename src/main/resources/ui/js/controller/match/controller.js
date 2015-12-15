@@ -10,10 +10,11 @@ turboAdventure.controller('MatchController', function ($scope, Restangular) {
     $scope.clicked = false;
     $scope.createNewMatch = function() {
 
-        Restangular.one('pairing').get().then(function (data) {
+        Restangular.one('pairing').post().then(function (data) {
             $scope.setPairing(data);
+            $scope.clicked = true;
+            $scope.updateHistory();
         });
-        $scope.clicked = true;
 
     }
     $scope.setPairing = function(triple){
@@ -21,4 +22,10 @@ turboAdventure.controller('MatchController', function ($scope, Restangular) {
         $scope.right = triple.right;
         $scope.song = triple.songToSing;
     }
+    $scope.updateHistory = function() {
+        Restangular.one('pairing').get().then(function (data) {
+            $scope.history = data.pairings;
+        });
+    }
+    $scope.updateHistory();
 });
